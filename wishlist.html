@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wishlist</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="navbar">
+
+            <div class="navlogo">
+                <div class="logo"></div>
+            </div>
+
+            <h2 style="color:white;">My Wishlist</h2>
+
+            <div class="nav-theme" id="themeToggle" title="Toggle dark / light theme"
+                style="cursor:pointer;color:white;margin-right:20px;">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+            <div class="nav-cart">
+
+                <a href="index.html" style="color:white;text-decoration:none;">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <section class="wishlist-page">
+
+        <h1>My Wishlist ❤️</h1>
+
+        <div id="wishlistItems"></div>
+
+    </section>
+
+    <script>
+
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        const wishlistItems = document.getElementById("wishlistItems");
+
+        function loadWishlist() {
+
+            wishlistItems.innerHTML = "";
+
+            if (wishlist.length === 0) {
+
+                wishlistItems.innerHTML = "<h2>Your Wishlist is Empty.</h2>";
+
+                return;
+
+            }
+
+            wishlist.forEach((item, index) => {
+
+                wishlistItems.innerHTML += `
+
+        <div class="cart-card">
+
+            <img src="${item.image}">
+
+            <div>
+
+                <h2>${item.name}</h2>
+
+                <p>${item.vendor}</p>
+
+                <h3>$${item.price}</h3>
+
+                <button class="add-cart-btn" onclick="moveToCart(${index})">
+
+                    Add To Cart
+
+                </button>
+
+                <button class="remove-btn" onclick="removeWishlist(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+            });
+
+        }
+
+        function moveToCart(index) {
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const product = wishlist[index];
+
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            wishlist.splice(index, 1);
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+            loadWishlist();
+
+        }
+
+        function removeWishlist(index) {
+
+            wishlist.splice(index, 1);
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+            loadWishlist();
+
+        }
+
+        loadWishlist();
+
+    </script>
+
+</body>
+
+</html>

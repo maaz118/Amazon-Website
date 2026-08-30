@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vendor Profile</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="navlogo">
+
+            <h2 style="color:white;">Vendor Profile</h2>
+
+        </div>
+
+        <div class="nav-theme" id="themeToggle" title="Toggle dark / light theme"
+            style="cursor:pointer;color:white;margin-right:20px;">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </div>
+
+        <div class="nav-cart">
+
+            <a href="index.html" style="color:white;text-decoration:none;">
+
+                <i class="fa-solid fa-house"></i>
+
+                Home
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <section class="vendor-profile">
+
+        <i class="fa-solid fa-store vendor-profile-icon"></i>
+
+        <h1 id="vendorName"></h1>
+
+        <p id="vendorRating"></p>
+
+        <p id="vendorProductCount"></p>
+
+        <p id="vendorDescription"></p>
+
+        <button onclick="contactVendor()">
+
+            Contact Vendor
+
+        </button>
+
+    </section>
+
+    <section class="vendor-products">
+
+        <h2>Vendor Products</h2>
+
+        <div class="shop-section" id="vendorProductsGrid"></div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        // Which vendor to show: whatever was clicked on the homepage,
+        // or "apple" by default if the page was opened directly.
+        const selectedVendorId = localStorage.getItem("selectedVendor") || "apple";
+
+        const vendor = vendors[selectedVendorId] || vendors.apple;
+
+        document.getElementById("vendorName").innerText = vendor.name;
+
+        document.getElementById("vendorRating").innerHTML = "⭐⭐⭐⭐⭐ " + vendor.rating + " Rating";
+
+        document.getElementById("vendorProductCount").innerText = vendor.productsCount + " Products Available";
+
+        document.getElementById("vendorDescription").innerText = vendor.description;
+
+        const grid = document.getElementById("vendorProductsGrid");
+
+        vendor.products.forEach(product => {
+
+            grid.innerHTML += `
+
+            <div class="box">
+
+                <div class="box-content">
+
+                    <h2>${product.name}</h2>
+
+                    <div class="box-img" style="background-image:url('${product.image}');"></div>
+
+                    <h3>$${product.price}</h3>
+
+                    <button class="cart-btn" onclick="addVendorProductToCart(${product.id}, '${product.name}', '${vendor.name}', ${product.price}, '${product.image}')">
+
+                        Add To Cart
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+        function addVendorProductToCart(id, name, vendorName, price, image) {
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existing = cart.find(item => item.id === id);
+
+            if (existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                cart.push({ id, name, vendor: vendorName, price, image, qty: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert(name + " added to Cart.");
+
+        }
+
+        function contactVendor() {
+            alert("Message sent to " + vendor.name + "! They will contact you soon.");
+        }
+
+    </script>
+
+</body>
+
+</html>
