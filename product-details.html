@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="navbar">
+
+            <div class="navlogo">
+                <div class="logo"></div>
+            </div>
+
+            <h2 style="color:white;">Product Details</h2>
+
+            <div class="nav-theme" id="themeToggle" title="Toggle dark / light theme"
+                style="cursor:pointer;color:white;margin-right:20px;">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="nav-cart">
+                <a href="index.html" style="color:white;text-decoration:none;">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <section class="details-page">
+
+        <div class="details-image">
+
+            <img id="detailImage">
+
+        </div>
+
+        <div class="details-content">
+
+            <h1 id="detailName"></h1>
+
+            <h3 id="detailVendor"></h3>
+
+            <h2 id="detailPrice"></h2>
+
+            <p>
+
+                Experience premium quality products from our trusted marketplace vendors.
+
+                Fast Delivery ✔
+
+                Secure Payment ✔
+
+                Original Products ✔
+
+            </p>
+
+            <button onclick="addCurrentToCart()">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+        if (!product) {
+
+            // No product was selected (e.g. page opened directly) - send the
+            // user back home instead of letting the page crash.
+            alert("No product selected. Redirecting to home page.");
+            window.location.href = "index.html";
+
+        } else {
+
+            document.getElementById("detailImage").src = product.image;
+
+            document.getElementById("detailName").innerHTML = product.name;
+
+            document.getElementById("detailVendor").innerHTML = product.vendor;
+
+            document.getElementById("detailPrice").innerHTML = "$" + product.price;
+
+        }
+
+        function addCurrentToCart() {
+
+            if (!product) return;
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert("Added to Cart Successfully");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
