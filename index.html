@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+
+        <!-- Navbar -->
+
+        <div class="navbar">
+
+            <div class="navlogo">
+                <div class="logo"></div>
+            </div>
+
+            <div class="nav-address border">
+                <p class="add-first">Deliver to</p>
+
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-second">Pakistan</p>
+                </div>
+            </div>
+
+            <div class="nav-search">
+
+                <select class="search-select">
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Fashion</option>
+                    <option>Sports</option>
+                    <option>Beauty</option>
+                </select>
+
+                <input type="text" placeholder="Search Products..." class="search-input" id="searchInput">
+
+                <div class="search-icon">
+                    <i class="fa-solid fa-search"></i>
+                </div>
+
+            </div>
+
+            <div class="nav-signin border">
+                <span>Hello, Sign in</span>
+                <p class="nav-second">Account</p>
+            </div>
+
+            <div class="nav-return border">
+                <span>Returns</span>
+                <p class="nav-second">& Orders</p>
+            </div>
+
+            <div class="nav-theme border" id="themeToggle" title="Toggle dark / light theme">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </div>
+
+            <div class="nav-cart border">
+
+                <a href="wishlist.html">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    Wishlist
+
+                </a>
+
+            </div>
+
+            <div class="nav-cart border">
+
+                <a href="cart.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Panel -->
+
+        <div class="panel">
+
+            <div class="panel-all">
+
+                <i class="fa-solid fa-bars"></i>
+
+                All
+
+            </div>
+
+            <div class="panel-op">
+
+                <p>Today's Deals</p>
+                <p>Electronics</p>
+                <p>Fashion</p>
+                <p>Sports</p>
+                <p>Beauty</p>
+                <p>Mobiles</p>
+
+            </div>
+
+            <div class="panel-deals">
+
+                Multi Vendor Marketplace
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero-section">
+
+        <div class="hero-overlay">
+
+            <h1>
+
+                Discover Amazing Products
+
+            </h1>
+
+            <p>
+
+                Shop from trusted vendors with secure shopping and fast delivery.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="shop-btn">
+
+                    Shop Now
+
+                </button>
+
+                <button class="vendor-btn">
+
+                    Become Vendor
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Featured Products -->
+
+    <section class="shop-section">
+
+        <div class="product-card">
+
+            <img src="apple-iphone-15-pro-pakistan-priceoye-x8agp-500x500.webp" alt="iPhone">
+
+            <div class="product-info">
+
+                <span class="category">Electronics</span>
+
+                <h2>Apple iPhone 14</h2>
+
+                <p class="vendor">
+                    <i class="fa-solid fa-store"></i>
+                    Apple Store
+                </p>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <h3>$999</h3>
+
+                <div class="product-buttons">
+
+                    <button onclick="viewDetails(0)">
+                        View Details
+                    </button>
+
+                    <button onclick="addToCart(0)">
+                        Add Cart
+                    </button>
+
+                    <button onclick="addWishlist(0)">
+                        ❤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="nike.jpg" alt="Nike">
+
+            <div class="product-info">
+
+                <span class="category">Fashion</span>
+
+                <h2>Nike Running Shoes</h2>
+
+                <p class="vendor">
+                    <i class="fa-solid fa-store"></i>
+                    Nike Official
+                </p>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <h3>$120</h3>
+
+                <div class="product-buttons">
+
+                    <button onclick="viewDetails(1)">
+                        View Details
+                    </button>
+
+                    <button onclick="addToCart(1)">
+                        Add Cart
+                    </button>
+
+                    <button onclick="addWishlist(1)">
+                        ❤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="img.jpg" alt="Fitness">
+
+            <div class="product-info">
+
+                <span class="category">Sports</span>
+
+                <h2>Fitness Dumbbells</h2>
+
+                <p class="vendor">
+                    <i class="fa-solid fa-store"></i>
+                    SportsPro
+                </p>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <h3>$75</h3>
+
+                <div class="product-buttons">
+
+                    <button onclick="viewDetails(2)">
+                        View Details
+                    </button>
+
+                    <button onclick="addToCart(2)">
+                        Add Cart
+                    </button>
+
+                    <button onclick="addWishlist(2)">
+                        ❤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="6.png" alt="Beauty">
+
+            <div class="product-info">
+
+                <span class="category">Beauty</span>
+
+                <h2>Beauty Kit</h2>
+
+                <p class="vendor">
+                    <i class="fa-solid fa-store"></i>
+                    Beauty World
+                </p>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <h3>$60</h3>
+
+                <div class="product-buttons">
+
+                    <button onclick="viewDetails(3)">
+                        View Details
+                    </button>
+
+                    <button onclick="addToCart(3)">
+                        Add Cart
+                    </button>
+
+                    <button onclick="addWishlist(3)">
+                        ❤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="categories">
+
+        <h2>Shop By Category</h2>
+
+        <div class="category-container">
+
+            <div class="category-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>Electronics</h3>
+            </div>
+
+            <div class="category-card">
+                <i class="fa-solid fa-shirt"></i>
+                <h3>Fashion</h3>
+            </div>
+
+            <div class="category-card">
+                <i class="fa-solid fa-football"></i>
+                <h3>Sports</h3>
+            </div>
+
+            <div class="category-card">
+                <i class="fa-solid fa-couch"></i>
+                <h3>Furniture</h3>
+            </div>
+
+            <div class="category-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Beauty</h3>
+            </div>
+
+            <div class="category-card">
+                <i class="fa-solid fa-apple-whole"></i>
+                <h3>Grocery</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURED VENDORS ================= -->
+
+    <section class="featured-vendors">
+
+        <h2>Featured Vendors</h2>
+
+        <div class="vendor-container">
+
+            <div class="vendor-card" onclick="goToVendor('apple')">
+
+                <i class="fa-solid fa-store vendor-icon"></i>
+
+                <h3>Apple Store</h3>
+
+                <p>Premium Electronics</p>
+
+                <button>Visit Store</button>
+
+            </div>
+
+            <div class="vendor-card" onclick="goToVendor('nike')">
+
+                <i class="fa-solid fa-store vendor-icon"></i>
+
+                <h3>Nike Official</h3>
+
+                <p>Sports Collection</p>
+
+                <button>Visit Store</button>
+
+            </div>
+
+            <div class="vendor-card" onclick="goToVendor('beauty')">
+
+                <i class="fa-solid fa-store vendor-icon"></i>
+
+                <h3>Beauty World</h3>
+
+                <p>Cosmetics & Skin Care</p>
+
+                <button>Visit Store</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section">
+
+        <h1>Contact Us</h1>
+        <p class="contact-subtitle">Have a question about an order, a product, or becoming a vendor? Send us a message
+            and our team will get back to you shortly.</p>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-info">
+
+                <div class="contact-info-overlay">
+
+                    <h2>Get in Touch</h2>
+                    <p>We're here to help with anything you need across our marketplace.</p>
+
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Islamabad, Pakistan</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+92 000 0000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>abc@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="contact-form-card">
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="abc" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="abc@example.com" required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+92 000 0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Write your message..." required></textarea>
+                    </div>
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>Marketplace</h3>
+                <p>
+                    Your trusted multi-vendor marketplace for electronics,
+                    fashion, beauty and more.
+                </p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">Categories</a>
+                <a href="#">Vendors</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Customer Service</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+
+                <div class="social-icons">
+
+                    <i class="fa-brands fa-facebook"></i>
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                    <i class="fa-brands fa-twitter"></i>
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Multi Vendor Marketplace | All Rights Reserved
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
